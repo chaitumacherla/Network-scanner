@@ -1,1 +1,11 @@
+#!usr/bin/python3
 
+import scapy.all as scapy
+def scapy(ip):
+    arp_request=scapy.ARP(pdst=ip)
+    broadcast = scapy.Ether("dst=ff:ff:ff:ff:ff:ff")
+    arp_request_packet = broadcast/arp_request
+    print(arp_request_packet.summary())
+
+
+scan("10.20.2.1")
