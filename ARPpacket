@@ -11,11 +11,14 @@ def scapy(ip):
 
     
     print("IP\t\t\tMAC address \n -------")
-
-
+    clients_list=[]
 
     for element in answered_list:
+        client_dict = {"ip":element[1].psrc, "mac":element[1].hwsrc}
+        clients_list = append(clients_dict)
         print(element[1].psrc +"\t\t"+ element[1].hwsrc)
+
+    print(clients_list)
         
 
 scan("10.20.2.1")
