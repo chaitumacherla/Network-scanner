@@ -2,6 +2,16 @@
 
 import scapy.all as scapy
 
+import argparse
+
+def get_arguments():
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t","--target",dest = "target",help = "target ip/ip range")
+    options = parser.parse_args()
+    return options
+
+
 def scapy(ip):
 
     arp_request = scapy.ARP(pdst=ip)
@@ -21,10 +31,12 @@ def scapy(ip):
 def print_result(results_list):
 
     print("IP\t\t\tMAC address \n -------")
-    
+
     for client in results_list:
         print(client["ip"] + "\t\t\t" + client["mac"])
 
 
-scan_result = scan("10.20.2.1/24")
+
+options = get_arguments()
+scan_result = scan(options.target)
 print_result = scan_result
