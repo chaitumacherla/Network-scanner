@@ -1,4 +1,4 @@
-Goal : Here we will write the code to discover clients on network
+Goal : write the code to discover clients on network
 
 
 steps: 1. Create an ARP request directed to broadcast MAC asking for IP address.
